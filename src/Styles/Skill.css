@@ -1,0 +1,200 @@
+.Skill {
+    background-color: var(--secondary-color);
+    padding: 90px 20px;
+}
+
+/* ================= CONTAINER ================= */
+
+.Skill-Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ================= SKILL BOX ================= */
+
+.skillbox {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 16px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.skillbox:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+    border: 1px solid var(--text-color);
+}
+
+/* ================= HEADER ================= */
+
+.skill-flex {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.skill-flex h3 {
+    color: var(--white-color);
+    font-weight: 600;
+}
+
+.skill-flex span {
+    font-size: 22px;
+}
+
+/* ================= GRID INSIDE BOX ================= */
+
+.box-skill,
+.box-skillS {
+    display: grid;
+    gap: 15px;
+}
+
+.box-skill {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.box-skillS {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+/* ================= SKILL ITEM ================= */
+
+.skill-space {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--white-color);
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.skill-space span:first-child {
+    color: var(--text-color);
+    font-size: 20px;
+    transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.skill-space:hover {
+    background: var(--text-color);
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.skill-space:hover span:first-child {
+    color: var(--primary-color);
+    transform: rotate(8deg) scale(1.2);
+}
+
+@media (max-width: 1024px) {
+
+    .Skill {
+        padding: 80px 20px;
+    }
+
+    .Skill-Container {
+        gap: 30px;
+    }
+
+    .skillbox {
+        padding: 25px;
+    }
+
+    .skill-flex h3 {
+        font-size: 18px;
+    }
+
+    .skill-space {
+        font-size: 13px;
+        padding: 10px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .Skill {
+        padding: 70px 15px;
+    }
+
+    .Skill-Container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .skillbox {
+        padding: 22px;
+    }
+
+    .box-skill {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .box-skillS {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .skill-space {
+        font-size: 13px;
+        padding: 10px 14px;
+    }
+
+    .skill-flex span {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .Skill {
+        padding: 20px 10px;
+    }
+
+    .Skill-Container {
+        gap: 20px;
+    }
+
+    .skillbox {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .skill-flex {
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .skill-flex h3 {
+        font-size: 16px;
+    }
+
+    .skill-flex span {
+        font-size: 18px;
+    }
+
+    .box-skill,
+    .box-skillS {
+        gap: 10px;
+    }
+
+    .skill-space {
+        font-size: 12px;
+        padding: 8px 12px;
+        border-radius: 8px;
+    }
+
+    .skill-space span:first-child {
+        font-size: 16px;
+    }
+}

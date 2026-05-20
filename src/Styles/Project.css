@@ -1,6 +1,6 @@
 .Project {
     background-color: var(--primary-color);
-     padding: 90px 20px;
+     padding: 50px 20px;
 }
 
 .about-h2 {
@@ -16,7 +16,9 @@
 
 .for-mar {
     margin-bottom: 0 !important;
+    padding: 20px 0px;
 }
+
 
 /* WRAPPER */
 .featured-wrapper {

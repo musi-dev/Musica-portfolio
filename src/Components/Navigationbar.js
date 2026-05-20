@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { FaBars, FaTimes } from "react-icons/fa";
 import Theme from './Theme';
+// import Switch from '../Pages/Themeicon';
 
 export default function Navigationbar() {
 
@@ -27,6 +28,7 @@ export default function Navigationbar() {
                     <li><a href="#work" onClick={() => setMenuOpen(false)}>Projects</a></li>
                     <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
                     <Theme />
+                    {/* <Switch /> */}
                 </ul>
             </div>
         </div>

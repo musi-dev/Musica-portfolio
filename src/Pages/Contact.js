@@ -4,8 +4,41 @@ import { FaWhatsapp } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { LuSend } from "react-icons/lu";
 import { FaLinkedinIn, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
+import React, { useState } from "react";
 
 export default function Contact() {
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: "",
+    });
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    };
+
+    const handleSubmit = () => {
+        const phoneNumber = "918610766168"; // your whatsapp number with country code
+
+        const text = `Hello Musica,%0A
+Name: ${formData.name}%0A
+Email: ${formData.email}%0A
+Message: ${formData.message}`;
+
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${text}`;
+
+        window.open(whatsappURL, "_blank");
+
+        setFormData({
+            name: "",
+            email: "",
+            message: "",
+        });
+    };
 
     return (
         <>
@@ -47,6 +80,7 @@ export default function Contact() {
                         </div>
 
                         {/* CONNECT */}
+
                         <div className="contact-card">
                             <h2>Connect</h2>
                             <div className="socials">
@@ -56,6 +90,7 @@ export default function Contact() {
                                 <div className="socialss sky"><FaTwitter /></div>
                             </div>
                         </div>
+
                     </div>
 
                     {/* RIGHT SIDE */}
@@ -64,17 +99,41 @@ export default function Contact() {
 
                         <div className="form">
                             <label>Name</label>
-                            <input type="text" placeholder="Your name"/>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Your name"
+                                value={formData.name}
+                                onChange={handleChange}
+                            />
 
                             <label>Email</label>
-                            <input type="email" placeholder="your@email.com" />
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="your@email.com"
+                                value={formData.email}
+                                onChange={handleChange}
+                            />
 
                             <label>Message</label>
-                            <textarea placeholder="Tell me about your project..."></textarea>
+                            <textarea
+                                name="message"
+                                placeholder="Tell me about your project..."
+                                value={formData.message}
+                                onChange={handleChange}
+                            ></textarea>
 
-                            <button className="Con-btn"><LuSend /> Send Message</button>
+                            <button
+                                type="button"
+                                className="Con-btn"
+                                onClick={handleSubmit}
+                            >
+                                <LuSend /> Send Message
+                            </button>
                         </div>
                     </div>
+
                 </div>
             </section>
         </>

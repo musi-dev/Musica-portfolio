@@ -1,202 +1,392 @@
+/* ─────────────────────────────────────────────
+   About Section — uses your existing variables:
+   --primary-color  (main bg)
+   --secondary-color (section bg)
+   --text-color     (accent)
+   --white-color    (#fff)
+───────────────────────────────────────────── */
+
 .About-section {
-    padding: 90px 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--secondary-color);
+  padding: 100px 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  background-color: var(--secondary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle radial glow in the background */
+.About-section::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--text-color-rgb, 233, 69, 96), 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ───────────────────────────────────────────
+   Section Heading
+─────────────────────────────────────────── */
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--text-color);
+  text-transform: uppercase;
 }
 
 .about-h2 {
-    text-align: center;
-    font-size: 30px;
-    color: var(--white-color);
-}
-
-.about-para {
-    font-size: 19px;
-    color: var(--white-color);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--white-color);
+  text-align: center;
+  line-height: 1.2;
 }
 
 .span {
-    color: var(--text-color)
+  color: var(--text-color);
 }
 
+/* Animated underline bar */
+.heading-line {
+  width: 60px;
+  height: 3px;
+  background-color: var(--text-color);
+  border-radius: 2px;
+  margin-top: 4px;
+}
+
+/* ───────────────────────────────────────────
+   Main Two-Column Layout
+─────────────────────────────────────────── */
 .about-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 64px;
+  width: 100%;
+  max-width: 1100px;
 }
 
-.about-text {
-    width: 50%;
+/* ───────────────────────────────────────────
+   Photo Column
+─────────────────────────────────────────── */
+.img-wrapper {
+  position: relative;
+  flex-shrink: 0;
 }
 
 .img-placeholder {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.03);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    position: relative;
-    transition: 0.4s ease;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.4s ease;
 }
 
+/* Gradient ring */
 .img-placeholder::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    padding: 6px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, rgb(57, 242, 255), #ffffff);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--text-color), rgba(255,255,255,0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
-.about-image:hover .img-placeholder {
-    transform: translateY(-10px) scale(1.03);
+.img-placeholder:hover {
+  transform: translateY(-8px) scale(1.02);
 }
 
 .img-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-/* Stats Section */
+/* Floating "Open to Work" badge */
+.float-badge {
+  position: absolute;
+  bottom: 10px;
+  right: -10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--text-color);
+  color: var(--white-color);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.float-badge-icon {
+  font-size: 14px;
+}
+
+/* ───────────────────────────────────────────
+   Text Column
+─────────────────────────────────────────── */
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 560px;
+}
+
+.about-role {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white-color);
+  line-height: 1.4;
+}
+
+.about-para {
+  font-size: 15.5px;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.85;
+}
+
+.about-para strong {
+  color: var(--white-color);
+  font-weight: 600;
+}
+
+/* Skill pills */
+.about-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.about-skill-pill {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12px;
+  font-family: 'Fira Code', monospace;
+  padding: 4px 14px;
+  border-radius: 20px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.about-skill-pill:hover {
+  border-color: var(--text-color);
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ───────────────────────────────────────────
+   Stats Row
+─────────────────────────────────────────── */
 .about-stats {
-    display: flex;
-    gap: 30px;
-    margin-top: 30px;
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
 }
 
 .stat-box {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 20px 30px;
-    border-radius: 12px;
-    text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s ease;
-    cursor: pointer;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  padding: 18px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .stat-box:hover {
-    transform: translateY(-8px);
-    background: var(--text-color);
-    color: var(--primary-color);
+  transform: translateY(-6px);
+  background: var(--text-color);
+  border-color: var(--text-color);
 }
 
 .stat-box h3 {
-    font-size: 28px;
-    color: var(--text-color);
-    margin-bottom: 5px;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.stat-box:hover h3 {
+  color: var(--white-color);
 }
 
 .stat-box p {
-    font-size: 16px;
-    color: var(--white-color);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
 }
 
+.stat-box:hover p {
+  color: var(--white-color);
+}
+
+/* ───────────────────────────────────────────
+   Responsive — 1024px
+─────────────────────────────────────────── */
 @media (max-width: 1024px) {
+  .About-section {
+    padding: 80px 40px;
+    gap: 48px;
+  }
 
-    .about-container {
-        flex-direction: column;
-        text-align: justify;
-        gap: 40px;
-    }
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+  }
 
-    .about-text {
-        width: 80%;
-    }
+  .about-text {
+    max-width: 100%;
+    text-align: justify;
+  }
 
-    .img-placeholder {
-        width: 300px;
-        height: 300px;
-    }
+  .about-stats {
+    justify-content: center;
+  }
 
-    .about-stats {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
+  .img-placeholder {
+    width: 300px;
+    height: 300px;
+  }
 }
 
+/* ───────────────────────────────────────────
+   Responsive — 768px
+─────────────────────────────────────────── */
 @media (max-width: 768px) {
+  .About-section {
+    padding: 70px 24px;
+    gap: 40px;
+  }
 
-    .About-section {
-        padding: 70px 20px;
-    }
+  .about-h2 {
+    font-size: 28px;
+  }
 
-    .about-h2 {
-        font-size: 26px;
-    }
+  .about-role {
+    font-size: 17px;
+  }
 
-    .about-para {
-        font-size: 17px;
-    }
+  .about-para {
+    font-size: 15px;
+  }
 
-    .about-text {
-        width: 100%;
-    }
+  .img-placeholder {
+    width: 260px;
+    height: 260px;
+  }
 
-    .img-placeholder {
-        width: 250px;
-        height: 250px;
-    }
+  .float-badge {
+    right: -4px;
+    font-size: 11px;
+    padding: 6px 12px;
+  }
 
-    .about-stats {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
+  .about-stats {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
 
-    .stat-box {
-        width: 80%;
-    }
-
+  .stat-box {
+    min-width: 120px;
+  }
 }
 
+/* ───────────────────────────────────────────
+   Responsive — 420px
+─────────────────────────────────────────── */
 @media (max-width: 420px) {
+  .About-section {
+    padding: 50px 15px;
+    gap: 32px;
+  }
 
-    .About-section {
-        padding: 20px 15px;
-    }
-    
-    .about-container{
-        padding: 0px;
-        gap: 20px;
-    }
-    .about-h2 {
-        font-size: 22px;
-    }
+  .about-h2 {
+    font-size: 22px;
+  }
 
-    .about-para {
-        font-size: 15px;
-    }
+  .section-label {
+    font-size: 10px;
+  }
 
-    .img-placeholder {
-        width: 200px;
-        height: 200px;
-    }
+  .about-role {
+    font-size: 16px;
+  }
 
-    .stat-box {
-        width: 100%;
-        padding: 15px 20px;
-    }
+  .about-para {
+    font-size: 14px;
+  }
 
-    .stat-box h3 {
-        font-size: 22px;
-    }
+  .img-placeholder {
+    width: 200px;
+    height: 200px;
+  }
 
-    .stat-box p {
-        font-size: 14px;
-    }
+  .float-badge {
+    font-size: 10px;
+    padding: 5px 10px;
+    bottom: 4px;
+    right: 0;
+  }
 
+  .about-stats {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .stat-box {
+    padding: 14px 16px;
+  }
+
+  .stat-box h3 {
+    font-size: 22px;
+  }
+
+  .stat-box p {
+    font-size: 13px;
+  }
+
+  .about-skills {
+    gap: 6px;
+  }
+
+  .about-skill-pill {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
 }

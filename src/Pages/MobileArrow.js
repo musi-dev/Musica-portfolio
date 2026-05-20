@@ -32,7 +32,7 @@ export default function MobileArrow() {
 
       {/* CSS INSIDE JSX */}
       
-      <style jsx>{`
+      <style>{`
         .scroll-top-arrow {
           position: fixed;
           bottom: 24px;
@@ -56,7 +56,7 @@ export default function MobileArrow() {
           transform: translateY(-4px);
         }
 
-        .scroll-top-arrow :global(svg) {
+        .scroll-top-arrow svg {
           font-size: 15px;
         }
       `}</style>

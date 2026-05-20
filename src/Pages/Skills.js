@@ -1,4 +1,5 @@
-import "../Styles/Skill.css"
+import "../Styles/Skill.css";
+
 import { MdOutlineCode } from "react-icons/md";
 import { IoColorPaletteOutline } from "react-icons/io5";
 import { LuUsers } from "react-icons/lu";
@@ -9,112 +10,164 @@ import { FaReact } from "react-icons/fa";
 import { SiExpress } from "react-icons/si";
 import { FaNode } from "react-icons/fa6";
 import { SiMongodb } from "react-icons/si";
-import { FaGitAlt } from "react-icons/fa";
-import { SiPostman } from "react-icons/si";
-// import { VscVscode } from "react-icons/vsc";
-import { FaGithub } from "react-icons/fa";
+// import { FaGitAlt } from "react-icons/fa";
+// import { SiPostman } from "react-icons/si";
+// import { FaGithub } from "react-icons/fa";
 import { FaComments, FaSyncAlt, FaClock } from "react-icons/fa";
+import { SiNextdotjs } from "react-icons/si";
 
+const techSkills = [
+    { icon: <ImHtmlFive />, label: "HTML" },
+    { icon: <FaCss3Alt />, label: "CSS" },
+    { icon: <RiJavascriptFill />, label: "JavaScript" },
+    { icon: <FaReact />, label: "React" },
+    { icon: <SiNextdotjs />, label: "Next.js" },
+    { icon: <FaNode />, label: "Node.js" },
+    { icon: <SiExpress />, label: "Express.js" },
+    { icon: <SiMongodb />, label: "MongoDB" },
+];
+
+const techBars = [
+    { label: "HTML / CSS", pct: 90 },
+    { label: "JavaScript", pct: 70 },
+    { label: "React", pct: 80 },
+    { label: "Next.js", pct: 70 },
+    { label: "Node / Express", pct: 70 },
+    { label: "MongoDB", pct: 65 },
+];
+
+const toolSkills = [
+    { label: "Git", pct: 85 },
+    { label: "GitHub", pct: 82 },
+    { label: "Postman", pct: 70 },
+];
+
+const softSkills = [
+    {
+        icon: <FaComments />,
+        name: "Communication",
+        desc: "Clear, concise and collaborative across teams",
+    },
+    {
+        icon: <FaSyncAlt />,
+        name: "Adaptability",
+        desc: "Quick to pick up new tools and shifting priorities",
+    },
+    {
+        icon: <FaClock />,
+        name: "Time Management",
+        desc: "Delivers consistently under tight deadlines",
+    },
+];
 
 export default function Skills() {
     return (
-        <div className='Skill'>
+        <div className="Skill">
 
-            <h1 className="about-h2">My <span className='span'>Skills</span></h1>
+            {/* ── Header ── */}
+            <div className="Skill-header">
+                <p className="skill-eyebrow">What I bring</p>
+                <h2 className="about-h2">
+                    My <span className="span">Skills</span>
+                </h2>
+            </div>
 
             <div className="Skill-Container">
 
-                <div className="skillbox">
-                    <div className="skill-flex"><span><MdOutlineCode style={{ color: "#2563EB" }} /></span><h3>Technical Skills</h3></div>
-                    <div className="box-skill">
+                {/* ══ Technical Skills ══ */}
+                <div className="skillbox skillbox--tech">
 
-                        <div className="skill-space">
-                            <span><ImHtmlFive /></span>
-                            <span>HTML</span>
+                    <div className="skill-flex">
+                        <div className="skill-icon-wrap skill-icon-wrap--cyan">
+                            <MdOutlineCode />
                         </div>
-
-                        <div className="skill-space">
-                            <span><FaCss3Alt /></span>
-                            <span>CSS</span>
-                        </div>
-
-                        <div className="skill-space">
-                            <span><RiJavascriptFill /></span>
-                            <span>JavaScript</span>
-                        </div>
-
-                        <div className="skill-space">
-                            <span><FaReact /></span>
-                            <span>React</span>
-                        </div>
-
-                        <div className="skill-space">
-                            <span><FaNode /></span>
-                            <span>Node.js</span>
-                        </div>
-
-                        <div className="skill-space">
-                            <span><SiExpress /></span>
-                            <span>Express.js</span>
-                        </div>
-
-                        <div className="skill-space">
-                            <span><SiMongodb /></span>
-                            <span>MongoDB</span>
-                        </div>
-
+                        <h3>Technical Skills</h3>
+                        <span className="skill-count">{techSkills.length} techs</span>
                     </div>
 
-                </div>
-
-                <div className="skillbox">
-                    <div className="skill-flex"><span><IoColorPaletteOutline style={{ color: "#9333EA" }} /></span><h3>Tools & Technologies</h3></div>
+                    {/* Pill tags */}
                     <div className="box-skill">
-
-                        <div className="skill-space">
-                            <span><FaGitAlt /></span>
-                            <span>Git</span>
-                        </div>
-
-                        <div className="skill-space">
-                            <span><FaGithub /></span>
-                            <span>GitHub</span>
-                        </div>
-
-                        <div className="skill-space">
-                            <span><SiPostman /></span>
-                            <span>Postman</span>
-                        </div>
-
+                        {techSkills.map((s) => (
+                            <span className="skill-pill" key={s.label}>
+                                <span className="pill-icon">{s.icon}</span>
+                                {s.label}
+                            </span>
+                        ))}
                     </div>
 
+                    {/* Proficiency bars */}
+                    <div className="skill-divider" />
+                    <p className="bar-section-label">Proficiency</p>
+
+                    {techBars.map((b, i) => (
+                        <div className="bar-row" key={b.label}>
+                            <span className="bar-label">{b.label}</span>
+                            <div className="bar-track">
+                                <div
+                                    className="bar-fill"
+                                    style={{
+                                        width: `${b.pct}%`,
+                                        animationDelay: `${0.1 + i * 0.12}s`,
+                                    }}
+                                />
+                            </div>
+                            <span className="bar-pct">{b.pct}%</span>
+                        </div>
+                    ))}
                 </div>
 
-                <div className="skillbox">
-                    <div className="skill-flex"><span><LuUsers style={{ color: "#16A34A" }} /></span><h3>Soft Skills</h3></div>
+                {/* ══ Tools & Technologies ══ */}
+                <div className="skillbox skillbox--tools">
+
+                    <div className="skill-flex">
+                        <div className="skill-icon-wrap skill-icon-wrap--purple">
+                            <IoColorPaletteOutline />
+                        </div>
+                        <h3>Tools &amp; Technologies</h3>
+                        <span className="skill-count">{toolSkills.length} tools</span>
+                    </div>
+
+                    {toolSkills.map((t, i) => (
+                        <div className="bar-row" key={t.label}>
+                            <span className="bar-label">{t.label}</span>
+                            <div className="bar-track">
+                                <div
+                                    className="bar-fill"
+                                    style={{
+                                        width: `${t.pct}%`,
+                                        animationDelay: `${0.15 + i * 0.12}s`,
+                                    }}
+                                />
+                            </div>
+                            <span className="bar-pct">{t.pct}%</span>
+                        </div>
+                    ))}
+                </div>
+
+                {/* ══ Soft Skills ══ */}
+                <div className="skillbox skillbox--soft">
+
+                    <div className="skill-flex">
+                        <div className="skill-icon-wrap skill-icon-wrap--green">
+                            <LuUsers />
+                        </div>
+                        <h3>Soft Skills</h3>
+                    </div>
+
                     <div className="box-skillS">
-
-                        <div className="skill-space">
-                            <span><FaComments /></span>
-                            <span>Communication</span>
-                        </div>
-
-                        <div className="skill-space">
-                            <span><FaSyncAlt /></span>
-                            <span>Adaptability</span>
-                        </div>
-
-                        <div className="skill-space">
-                            <span><FaClock /></span>
-                            <span>Time Management</span>
-                        </div>
-
+                        {softSkills.map((s) => (
+                            <div className="soft-item" key={s.name}>
+                                <div className="soft-icon-box">{s.icon}</div>
+                                <div className="soft-text">
+                                    <p className="soft-name">{s.name}</p>
+                                    <p className="soft-desc">{s.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
-
                 </div>
 
             </div>
-
         </div>
-    )
+    );
 }

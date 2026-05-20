@@ -7,6 +7,9 @@ import image4 from "../Assets/GymWeb.png";
 import image5 from "../Assets/Sareewebsite.png";
 import image6 from "../Assets/RegisterForm.png";
 import image7 from "../Assets/Youtube.png";
+import image8 from "../Assets/temple.png";
+import image9 from "../Assets/admin.png";
+import image10 from "../Assets/pr.png";
 
 export default function Project() {
 
@@ -15,7 +18,30 @@ export default function Project() {
     subtitle: "A selection of my recent work, ranging from web applications to design systems.",
     items: [
       {
-        badge: "Web App",
+        badge: "Website",
+        title: "Temple Website",
+        description: "A responsive temple website featuring spiritual information, festival updates, pooja timings, gallery sections, and contact details with a clean and traditional UI design.",
+        tech: ["React", "CSS"],
+        github: "https://github.com/Musica-R",
+        live: "https://temple-website-8d273.web.app"
+      },
+      {
+        badge: "Website",
+        title: "HRMS Management Admin",
+        description: "A responsive HRMS admin dashboard for managing employees, attendance, payroll, leave requests, and reports with a clean and modern UI design.",
+        tech: ["React", "CSS"],
+        github: "https://github.com/Musica-R"
+      },
+      {
+        badge: "Portfolio",
+        title: "HR Business Portfolio",
+        description: "A professional HR portfolio website showcasing business services, company profile, client engagement, contact details, and modern responsive UI design.",
+        tech: ["React", "CSS"],
+        github: "https://github.com/Musica-R",
+        live: "https://pragya-hr-phi.vercel.app"
+      },
+      {
+        badge: "Website",
         title: "Saree E-Commerce Website",
         description: "A full-stack saree shopping platform built with Next.js, featuring product listings, cart functionality, secure checkout, user authentication, and admin product management.",
         tech: ["Next.js", "MongoDB", "Razorpay"],
@@ -66,7 +92,7 @@ export default function Project() {
     button: "View Details"
   };
 
-  const images = [image5, image4, image2, image6, image1, image7];
+  const images = [image8, image9, image10, image5, image4, image2, image6, image1, image7];
 
   return (
     <div className='Project'>
